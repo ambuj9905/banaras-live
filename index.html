@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashi-Magadh Spiritual Trails · Custom Yatra &amp; Route Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOP NAVY BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Kashi-Magadh Spiritual Trails · Custom Yatra &amp; Route Planner</div>
+      <div class="topbar-right">
+        <div class="curr-group">
+          <button type="button" id="currBtnINR" class="curr-btn active" onclick="setCurrency('INR')">🇮🇳 INR ₹</button>
+          <button type="button" id="currBtnUSD" class="curr-btn" onclick="setCurrency('USD')">🌍 USD $</button>
+        </div>
+        <a href="#foreign-desk" class="topbar-link">USD Packages</a>
+        <a href="#planner-section" class="topbar-link-white">Plan Your Trip</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-title">Kashi-Magadh</span>
+        <span class="brand-sub">SPIRITUAL TRAILS</span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="btn-outline-sm" onclick="openGalleryModal('all')">📷 Photos (23)</button>
+        <button type="button" class="btn-emerald-sm" onclick="openBookingModal()">Quick Quote</button>
+        <button type="button" class="menu-btn" onclick="toggleNavDrawer()" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <nav id="navDrawer" class="nav-drawer hidden">
+      <div class="container">
+        <a href="#trails-section" onclick="toggleNavDrawer(false)">Featured Trails</a>
+        <a href="#destinations-section" onclick="toggleNavDrawer(false)">Top Destinations</a>
+        <a href="#foreign-desk" onclick="toggleNavDrawer(false)" class="nav-accent">International Guests · USD ($) Packages</a>
+        <a href="#planner-section" onclick="toggleNavDrawer(false)">Route &amp; Cost Planner</a>
+        <a href="#reviews-section" onclick="toggleNavDrawer(false)">Traveller Reviews</a>
+        <a href="#terms-section" onclick="toggleNavDrawer(false)">Terms &amp; Conditions</a>
+        <a href="#help-section" onclick="toggleNavDrawer(false)">Need Help</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container-narrow">
+      <h1>Discover Kashi-Magadh Trails</h1>
+      <div class="search-box">
+        <input id="heroSearchInput" type="text" oninput="handleSearchFilter(this.value)" placeholder="Find trail or destination..." />
+        <button type="button" class="search-icon-btn" onclick="document.getElementById('trails-section').scrollIntoView()">🔍</button>
+      </div>
+      <p id="searchStatusText" class="search-status hidden"></p>
+
+      <div class="hero-cats">
+        <a href="#trails-section" class="cat-card">
+          <span class="emoji">🛕</span>
+          <span class="label">Spiritual Trails</span>
+        </a>
+        <a href="#destinations-section" class="cat-card">
+          <span class="emoji">🏛️</span>
+          <span class="label">Heritage &amp; Ghats</span>
+        </a>
+        <a href="#planner-section" class="cat-card">
+          <span class="emoji">🧭</span>
+          <span class="label">Route Planner</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPIRITUAL & HERITAGE TRAILS -->
+  <section id="trails-section" class="section">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="eyebrow">OUR BEST TRAILS, HANDPICKED FOR YOU</div>
+          <h2 class="section-title">Spiritual &amp; Heritage Trails</h2>
+        </div>
+        <div class="muted-note">Click thumbnails to switch photos from <code>images/</code></div>
+      </div>
+
+      <div class="grid-3">
+        <!-- Card 1 -->
+        <article class="card filterable-card" data-keywords="kashi varanasi ayodhya darshan spiritual circuit">
+          <div class="card-img-wrap">
+            <img id="trail1-main" src="images/ayo1.jpeg" data-fallback="https://images.unsplash.com/photo-1706186839147-0d708602587b?auto=format&fit=crop&w=900&q=80" alt="Kashi–Ayodhya Darshan Trail" />
+          </div>
+          <div class="card-body">
+            <div class="thumbs">
+              <button type="button" class="thumb-btn" onclick="swapCardImg('trail1-main', this, 'images/VNS.jpeg', 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/VNS.jpeg" data-fallback="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=300&q=70" alt="VNS" />
+              </button>
+              <button type="button" class="thumb-btn active" onclick="swapCardImg('trail1-main', this, 'images/ayo1.jpeg', 'https://images.unsplash.com/photo-1706186839147-0d708602587b?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/ayo1.jpeg" data-fallback="https://images.unsplash.com/photo-1706186839147-0d708602587b?auto=format&fit=crop&w=300&q=70" alt="Ayo1" />
+              </button>
+              <button type="button" class="thumb-btn" onclick="swapCardImg('trail1-main', this, 'images/ayo3.jpeg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/ayo3.jpeg" data-fallback="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=300&q=70" alt="Ayo3" />
+              </button>
+            </div>
+            <div class="card-cat">Spiritual Circuit</div>
+            <h3 class="card-title">Kashi–Ayodhya Darshan Trail</h3>
+            <div class="card-meta">🕒 3 Days · <span class="rating-star">★ 4.9</span> (24 reviews)</div>
+            <div class="card-footer">
+              <div class="price price-tag" data-inr="11500" data-usd="165">₹11,500</div>
+              <div class="btn-row">
+                <button type="button" class="btn-sec" onclick="loadTrailIntoPlanner(['Varanasi', 'Ayodhya'], 3)">Planner</button>
+                <button type="button" class="btn-pri" onclick="openBookingModal('Kashi–Ayodhya Darshan Trail', 11500, 165, 3, ['Varanasi', 'Ayodhya'])">Book</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card filterable-card" data-keywords="varanasi prayagraj ayodhya river temple circuit">
+          <div class="card-img-wrap">
+            <img id="trail2-main" src="images/ayo2.jpeg" data-fallback="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=900&q=80" alt="Varanasi–Prayagraj–Ayodhya Trail" />
+          </div>
+          <div class="card-body">
+            <div class="thumbs">
+              <button type="button" class="thumb-btn" onclick="swapCardImg('trail2-main', this, 'images/pra1.jpeg', 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/pra1.jpeg" data-fallback="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=300&q=70" alt="Pra1" />
+              </button>
+              <button type="button" class="thumb-btn" onclick="swapCardImg('trail2-main', this, 'images/VNS3.jpeg', 'https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/VNS3.jpeg" data-fallback="https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=300&q=70" alt="VNS3" />
+              </button>
+              <button type="button" class="thumb-btn active" onclick="swapCardImg('trail2-main', this, 'images/ayo2.jpeg', 'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/ayo2.jpeg" data-fallback="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=300&q=70" alt="Ayo2" />
+              </button>
+            </div>
+            <div class="card-cat">River &amp; Temple Circuit</div>
+            <h3 class="card-title">Varanasi–Prayagraj–Ayodhya Trail</h3>
+            <div class="card-meta">🕒 4 Days · <span class="rating-star">★ 4.8</span> (19 reviews)</div>
+            <div class="card-footer">
+              <div class="price price-tag" data-inr="15500" data-usd="220">₹15,500</div>
+              <div class="btn-row">
+                <button type="button" class="btn-sec" onclick="loadTrailIntoPlanner(['Varanasi', 'Prayagraj', 'Ayodhya'], 4)">Planner</button>
+                <button type="button" class="btn-pri" onclick="openBookingModal('Varanasi–Prayagraj–Ayodhya Trail', 15500, 220, 4, ['Varanasi', 'Prayagraj', 'Ayodhya'])">Book</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card filterable-card" data-keywords="sasaram mundeshwari gaya bodh gaya heritage hill trail">
+          <div class="card-img-wrap">
+            <img id="trail3-main" src="images/bodh1.jpeg" data-fallback="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=80" alt="Sasaram–Mundeshwari–Gaya Trail" />
+          </div>
+          <div class="card-body">
+            <div class="thumbs">
+              <button type="button" class="thumb-btn" onclick="swapCardImg('trail3-main', this, 'images/ssm1.jpeg', 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/ssm1.jpeg" data-fallback="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=300&q=70" alt="Ssm1" />
+              </button>
+              <button type="button" class="thumb-btn" onclick="swapCardImg('trail3-main', this, 'images/mund1.jpeg', 'https://images.unsplash.com/photo-1623057000049-e220f79c7051?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/mund1.jpeg" data-fallback="https://images.unsplash.com/photo-1623057000049-e220f79c7051?auto=format&fit=crop&w=300&q=70" alt="Mund1" />
+              </button>
+              <button type="button" class="thumb-btn active" onclick="swapCardImg('trail3-main', this, 'images/bodh1.jpeg', 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=80')">
+                <img src="images/bodh1.jpeg" data-fallback="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=300&q=70" alt="Bodh1" />
+              </button>
+            </div>
+            <div class="card-cat">Heritage &amp; Hill Trail</div>
+            <h3 class="card-title">Sasaram–Mundeshwari–Gaya Trail</h3>
+            <div class="card-meta">🕒 4 Days · <span class="rating-star">★ 4.9</span> (15 reviews)</div>
+            <div class="card-footer">
+              <div class="price price-tag" data-inr="14500" data-usd="205">₹14,500</div>
+              <div class="btn-row">
+                <button type="button" class="btn-sec" onclick="loadTrailIntoPlanner(['Sasaram', 'Mundeshwari', 'Gaya & Bodh Gaya'], 4)">Planner</button>
+                <button type="button" class="btn-pri" onclick="openBookingModal('Sasaram–Mundeshwari–Gaya Trail', 14500, 205, 4, ['Sasaram', 'Mundeshwari', 'Gaya & Bodh Gaya'])">Book</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED EXPERIENCES -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">EXPLORE THE BEST &amp; POPULAR ACTIVITIES</div>
+      <h2 class="section-title mb-24">Featured Experiences</h2>
+
+      <div class="grid-2">
+        <article class="card filterable-card" data-keywords="varanasi sunrise ghat aarti trail">
+          <div class="card-img-wrap tall">
+            <img id="exp1-main" src="images/VNS4.jpeg" data-fallback="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=80" alt="Varanasi Sunrise Ghat & Aarti Trail" />
+          </div>
+          <div class="card-body">
+            <div class="thumbs">
+              <button type="button" class="thumb-btn active" onclick="swapCardImg('exp1-main', this, 'images/VNS4.jpeg', 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=80')">
+                <img src="images/VNS4.jpeg" data-fallback="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=300&q=70" alt="VNS4" />
+              </button>
+              <button type="button" class="thumb-btn" onclick="swapCardImg('exp1-main', this, 'images/VNS2.jpeg', 'https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1000&q=80')">
+                <img src="images/VNS2.jpeg" data-fallback="https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=300&q=70" alt="VNS2" />
+              </button>
+              <button type="button" class="thumb-btn" onclick="swapCardImg('exp1-main', this, 'images/VNS5.jpeg', 'https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=1000&q=80')">
+                <img src="images/VNS5.jpeg" data-fallback="https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=300&q=70" alt="VNS5" />
+              </button>
+            </div>
+            <div class="card-cat">Ghat &amp; River Walk</div>
+            <h3 class="card-title">Varanasi Sunrise Ghat &amp; Aarti Trail</h3>
+            <div class="card-meta">🕒 2 Days · <span class="rating-star">★ 5.0</span> (31 reviews)</div>
+            <div class="card-footer">
+              <div class="price price-tag" data-inr="7800" data-usd="115">₹7,800</div>
+              <div class="btn-row">
+                <button type="button" class="btn-sec" onclick="loadTrailIntoPlanner(['Varanasi'], 2)">Planner</button>
+                <button type="button" class="btn-pri" onclick="openBookingModal('Varanasi Sunrise Ghat & Aarti Trail', 7800, 115, 2, ['Varanasi'])">Book</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card filterable-card" data-keywords="bodh gaya sacred trail meditation heritage">
+          <div class="card-img-wrap tall">
+            <img id="exp2-main" src="images/bodh5.jpeg" data-fallback="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80" alt="Bodh Gaya & Gaya Sacred Trail" />
+          </div>
+          <div class="card-body">
+            <div class="thumbs">
+              <button type="button" class="thumb-btn" onclick="swapCardImg('exp2-main', this, 'images/bodh2.jpeg', 'https://images.unsplash.com/photo-1623057000049-e220f79c7051?auto=format&fit=crop&w=1000&q=80')">
+                <img src="images/bodh2.jpeg" data-fallback="https://images.unsplash.com/photo-1623057000049-e220f79c7051?auto=format&fit=crop&w=300&q=70" alt="Bodh2" />
+              </button>
+              <button type="button" class="thumb-btn" onclick="swapCardImg('exp2-main', this, 'images/bodh4.jpeg', 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1000&q=80')">
+                <img src="images/bodh4.jpeg" data-fallback="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=300&q=70" alt="Bodh4" />
+              </button>
+              <button type="button" class="thumb-btn active" onclick="swapCardImg('exp2-main', this, 'images/bodh5.jpeg', 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1000&q=80')">
+                <img src="images/bodh5.jpeg" data-fallback="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=300&q=70" alt="Bodh5" />
+              </button>
+            </div>
+            <div class="card-cat">Meditation &amp; Heritage</div>
+            <h3 class="card-title">Bodh Gaya &amp; Gaya Sacred Trail</h3>
+            <div class="card-meta">🕒 2 Days · <span class="rating-star">★ 4.9</span> (18 reviews)</div>
+            <div class="card-footer">
+              <div class="price price-tag" data-inr="8200" data-usd="125">₹8,200</div>
+              <div class="btn-row">
+                <button type="button" class="btn-sec" onclick="loadTrailIntoPlanner(['Gaya & Bodh Gaya'], 2)">Planner</button>
+                <button type="button" class="btn-pri" onclick="openBookingModal('Bodh Gaya & Gaya Sacred Trail', 8200, 125, 2, ['Gaya & Bodh Gaya'])">Book</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP DESTINATIONS -->
+  <section id="destinations-section" class="section">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="eyebrow">MEET YOUR SPIRITUAL &amp; HERITAGE STOPS</div>
+          <h2 class="section-title">Top Destinations</h2>
+        </div>
+        <button type="button" class="btn-outline-sm" onclick="openGalleryModal('all')">View All 23 Photos →</button>
+      </div>
+
+      <div class="grid-4">
+        <div class="dest-card filterable-card" data-keywords="varanasi ghats kashi">
+          <img src="images/VNS.jpeg" data-fallback="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80" alt="Varanasi" />
+          <div class="dest-overlay">
+            <button type="button" class="photo-badge" onclick="openGalleryModal('Varanasi')">📷 5 Photos</button>
+            <div>
+              <div class="dest-sub">GHATS &amp; KASHI · OCT – MAR</div>
+              <div class="dest-name">Varanasi</div>
+              <div class="dest-fest">Dev Deepawali &amp; Mahashivratri</div>
+              <div class="dest-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Dashashwamedh+Ghat+Varanasi" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://www.google.com/search?q=Varanasi+Ghats+Kashi+Vishwanath" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card filterable-card" data-keywords="prayagraj triveni sangam">
+          <img src="images/pra1.jpeg" data-fallback="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80" alt="Prayagraj" />
+          <div class="dest-overlay">
+            <button type="button" class="photo-badge" onclick="openGalleryModal('Prayagraj')">📷 3 Photos</button>
+            <div>
+              <div class="dest-sub">TRIVENI SANGAM · NOV – FEB</div>
+              <div class="dest-name">Prayagraj</div>
+              <div class="dest-fest">Magh Mela &amp; Kumbh</div>
+              <div class="dest-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Triveni+Sangam+Prayagraj" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://www.google.com/search?q=Triveni+Sangam+Prayagraj" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card filterable-card" data-keywords="ayodhya saryu ram mandir">
+          <img src="images/ayo1.jpeg" data-fallback="https://images.unsplash.com/photo-1706186839147-0d708602587b?auto=format&fit=crop&w=800&q=80" alt="Ayodhya" />
+          <div class="dest-overlay">
+            <button type="button" class="photo-badge" onclick="openGalleryModal('Ayodhya')">📷 3 Photos</button>
+            <div>
+              <div class="dest-sub">SARYU &amp; RAM MANDIR · OCT – MAR</div>
+              <div class="dest-name">Ayodhya</div>
+              <div class="dest-fest">Deepotsav &amp; Ram Navami</div>
+              <div class="dest-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Shri+Ram+Janmabhoomi+Temple+Ayodhya" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://www.google.com/search?q=Ram+Mandir+Ayodhya" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card filterable-card" data-keywords="sasaram sher shah tomb hills">
+          <img src="images/ssm1.jpeg" data-fallback="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80" alt="Sasaram" />
+          <div class="dest-overlay">
+            <button type="button" class="photo-badge" onclick="openGalleryModal('Sasaram')">📷 5 Photos</button>
+            <div>
+              <div class="dest-sub">SHER SHAH TOMB &amp; HILLS · OCT – FEB</div>
+              <div class="dest-name">Sasaram</div>
+              <div class="dest-fest">Sher Shah Jayanti &amp; Chhath</div>
+              <div class="dest-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Tomb+of+Sher+Shah+Suri+Sasaram" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://www.google.com/search?q=Sasaram+Sher+Shah+Tomb" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card filterable-card" data-keywords="mundeshwari kaimur hill shrine">
+          <img src="images/mund1.jpeg" data-fallback="https://images.unsplash.com/photo-1623057000049-e220f79c7051?auto=format&fit=crop&w=800&q=80" alt="Mundeshwari" />
+          <div class="dest-overlay">
+            <button type="button" class="photo-badge" onclick="openGalleryModal('Mundeshwari')">📷 3 Photos</button>
+            <div>
+              <div class="dest-sub">KAIMUR HILL SHRINE · OCT – MAR</div>
+              <div class="dest-name">Mundeshwari</div>
+              <div class="dest-fest">Chaitra &amp; Shardiya Navratri</div>
+              <div class="dest-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Mundeshwari+Temple+Kaimur+Bihar" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://www.google.com/search?q=Mundeshwari+Temple+Bihar" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card filterable-card" data-keywords="gaya bodh gaya vishnupad mahabodhi">
+          <img src="images/bodh1.jpeg" data-fallback="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Gaya & Bodh Gaya" />
+          <div class="dest-overlay">
+            <button type="button" class="photo-badge" onclick="openGalleryModal('Gaya & Bodh Gaya')">📷 4 Photos</button>
+            <div>
+              <div class="dest-sub">VISHNUPAD &amp; MAHABODHI · OCT – MAR</div>
+              <div class="dest-name">Gaya &amp; Bodh Gaya</div>
+              <div class="dest-fest">Pitru Paksha &amp; Buddha Jayanti</div>
+              <div class="dest-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Mahabodhi+Temple+Bodh+Gaya" target="_blank" rel="noopener">Google Maps</a>
+                <a href="https://www.google.com/search?q=Bodh+Gaya+and+Gaya" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK NAVY STORYTELLING BANNER -->
+  <section class="dark-banner">
+    <div class="container-narrow">
+      <div class="eyebrow">DISCOVER KASHI &amp; MAGADH: SACRED RIVERS, TEMPLES &amp; HERITAGE</div>
+      <h2>Kashi-Magadh Spiritual Trails</h2>
+      <blockquote>
+        “Every journey across Kashi and Magadh carries centuries of devotion, riverfront calm, ancient stone, and timeless stories.”
+      </blockquote>
+      <p class="lead">
+        From the ghats of Varanasi and the confluence at Prayagraj to Saryu-side Ayodhya, Sasaram’s sandstone heritage, Mundeshwari’s hilltop shrine, and Bodh Gaya’s calm sanctuaries, plan routes that fit your pace.
+      </p>
+      <p class="lead">
+        Mix and match stops, choose rental bike, cab, or bus options, pick 2-star, 3-star, or 4-star stays, and include satvik or local meal plans in one clear estimate.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY TRAVEL & PLANNING INFO CARDS -->
+  <section class="section">
+    <div class="container-narrow">
+      <div class="info-box">
+        <h3>Why Travel with Kashi-Magadh Trails?</h3>
+        <ul>
+          <li>Flexible stop combinations across Varanasi, Prayagraj, Ayodhya, Sasaram, Mundeshwari, and Gaya.</li>
+          <li>Transparent cost estimates for transport, stay tier, and meal plans.</li>
+          <li>Direct links to Google Maps and search for each destination.</li>
+          <li>Easy to customise and update as your plans evolve.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>Planning Your Yatra?</h3>
+        <ul>
+          <li>Pick a ready trail or build your own route step by step.</li>
+          <li>Adjust traveller count, days, and stay comfort easily.</li>
+          <li>Review seasonal windows and major festivals before you go.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOREIGN / INTERNATIONAL GUESTS USD PACKAGES -->
+  <section id="foreign-desk" class="section section-alt">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="eyebrow">🌍 INTERNATIONAL GUESTS &amp; GLOBAL CONCIERGE · USD ($)</div>
+          <h2 class="section-title">Curated India Spiritual &amp; Buddhist Circuit Packages (USD)</h2>
+          <p class="section-subtitle">
+            English-guided itineraries for overseas travellers with vetted 3-Star &amp; 4-Star stays, private AC vehicles, and transparent USD pricing.
+          </p>
+        </div>
+        <button type="button" class="btn-emerald-sm" onclick="setCurrency('USD'); document.getElementById('planner-section').scrollIntoView();">
+          Switch Calculator to USD ($)
+        </button>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-cat">3 Days / 2 Nights · English Guide</div>
+            <h3 class="card-title">Kashi &amp; Sarnath Cultural Immersion</h3>
+            <p class="card-desc">
+              Sunrise boat on Varanasi ghats, evening Ganga Aarti, Sarnath Buddhist heritage walk, 4-Star stay &amp; airport pickup.
+            </p>
+            <div class="card-footer">
+              <div class="price">$340 USD</div>
+              <button type="button" class="btn-pri" onclick="setCurrency('USD'); openBookingModal('Kashi & Sarnath Cultural Immersion (USD)', 28500, 340, 3, ['Varanasi'])">Reserve USD</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-featured">
+          <div class="card-body">
+            <div class="card-cat">5 Days / 4 Nights · Best Seller</div>
+            <h3 class="card-title">Sacred Ganges &amp; Bodh Gaya Enlightenment</h3>
+            <p class="card-desc">
+              Varanasi, Prayagraj Sangam, and Bodh Gaya Mahabodhi Temple &amp; Bodhi Tree with private AC SUV and English host.
+            </p>
+            <div class="card-footer">
+              <div class="price">$620 USD</div>
+              <button type="button" class="btn-pri" onclick="setCurrency('USD'); openBookingModal('Sacred Ganges & Bodh Gaya Enlightenment (USD)', 52000, 620, 5, ['Varanasi', 'Prayagraj', 'Gaya & Bodh Gaya'])">Reserve USD</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="card-cat">8 Days / 7 Nights · Grand Circuit</div>
+            <h3 class="card-title">Complete 6-Stop Kashi-Magadh Odyssey</h3>
+            <p class="card-desc">
+              Full route across Varanasi, Ayodhya, Prayagraj, Sasaram, Mundeshwari, and Bodh Gaya with dedicated English concierge.
+            </p>
+            <div class="card-footer">
+              <div class="price">$980 USD</div>
+              <button type="button" class="btn-pri" onclick="setCurrency('USD'); openBookingModal('Complete 6-Stop Kashi-Magadh Odyssey (USD)', 82000, 980, 8, ['Varanasi', 'Ayodhya', 'Prayagraj', 'Sasaram', 'Mundeshwari', 'Gaya & Bodh Gaya'])">Reserve USD</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST REVIEWS -->
+  <section id="reviews-section" class="section">
+    <div class="container-narrow">
+      <div class="text-center mb-24">
+        <div class="eyebrow">WHAT TRAVELLERS SAY</div>
+        <h2 class="section-title">Latest Reviews</h2>
+      </div>
+
+      <div id="reviewsList">
+        <div class="review-card">
+          <div class="review-name">ROHIT</div>
+          <div class="review-route">Lucknow · Kashi–Ayodhya Trail</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Having Varanasi, Prayagraj, and Ayodhya in one route planner made it very easy to compare stay options and travel days for our family trip.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-name">ANANYA</div>
+          <div class="review-route">Patna · Magadh &amp; Kaimur Heritage</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Great to see Sasaram, Mundeshwari, and Bodh Gaya highlighted alongside major spiritual stops with clear seasonal notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTE, TRANSPORT, HOTEL & MEAL PLANNER -->
+  <section id="planner-section" class="section section-alt">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="eyebrow">CUSTOMISE YOUR ITINERARY</div>
+          <h2 class="section-title">Route, Transport, Hotel &amp; Meal Planner</h2>
+        </div>
+        <div class="planner-curr-bar">
+          <span>Currency:</span>
+          <button type="button" id="plannerCurrINR" class="btn-pri" onclick="setCurrency('INR')">INR (₹)</button>
+          <button type="button" id="plannerCurrUSD" class="btn-sec" onclick="setCurrency('USD')">USD ($)</button>
+        </div>
+      </div>
+
+      <div class="planner-grid">
+        <div class="panel">
+          <div class="panel-title">1. Quick Route Presets</div>
+          <div class="presets">
+            <button type="button" class="preset-btn" onclick="applyPreset(['Varanasi', 'Ayodhya'], 3)">Varanasi -&gt; Ayodhya</button>
+            <button type="button" class="preset-btn" onclick="applyPreset(['Varanasi', 'Prayagraj', 'Ayodhya'], 4)">Varanasi -&gt; Prayagraj -&gt; Ayodhya</button>
+            <button type="button" class="preset-btn" onclick="applyPreset(['Sasaram', 'Mundeshwari', 'Gaya & Bodh Gaya'], 4)">Sasaram -&gt; Mundeshwari -&gt; Gaya</button>
+            <button type="button" class="preset-btn preset-all" onclick="applyPreset(['Varanasi', 'Ayodhya', 'Prayagraj', 'Gaya & Bodh Gaya', 'Mundeshwari', 'Sasaram'], 15)">All 6 Stops</button>
+          </div>
+
+          <div class="panel-title">2. Select Destinations</div>
+          <div class="dest-checks">
+            <label class="check-item"><input type="checkbox" class="dest-checkbox" value="Varanasi" checked onchange="recalculatePlan()" /> Varanasi</label>
+            <label class="check-item"><input type="checkbox" class="dest-checkbox" value="Prayagraj" checked onchange="recalculatePlan()" /> Prayagraj</label>
+            <label class="check-item"><input type="checkbox" class="dest-checkbox" value="Ayodhya" checked onchange="recalculatePlan()" /> Ayodhya</label>
+            <label class="check-item"><input type="checkbox" class="dest-checkbox" value="Sasaram" checked onchange="recalculatePlan()" /> Sasaram</label>
+            <label class="check-item"><input type="checkbox" class="dest-checkbox" value="Mundeshwari" checked onchange="recalculatePlan()" /> Mundeshwari</label>
+            <label class="check-item"><input type="checkbox" class="dest-checkbox" value="Gaya & Bodh Gaya" checked onchange="recalculatePlan()" /> Gaya &amp; Bodh Gaya</label>
+          </div>
+
+          <div class="panel-title">3. Trip Details</div>
+          <div class="trip-inputs">
+            <div class="field">
+              <label for="travellersInput">Travellers</label>
+              <input id="travellersInput" type="number" min="1" max="60" value="16" oninput="recalculatePlan()" />
+            </div>
+            <div class="field">
+              <label for="daysInput">Days</label>
+              <input id="daysInput" type="number" min="1" max="30" value="15" oninput="recalculatePlan()" />
+            </div>
+            <div class="field">
+              <label for="transportSelect">Transport</label>
+              <select id="transportSelect" onchange="recalculatePlan()">
+                <option value="cab" selected>Private Cab (3-6)</option>
+                <option value="bike">Rental Bike (1-2)</option>
+                <option value="tempo">Tempo Traveller (7-14)</option>
+                <option value="bus">Luxury Coach Bus (15+)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="hotelSelect">Hotel Tier</label>
+              <select id="hotelSelect" onchange="recalculatePlan()">
+                <option value="2star">2-Star Stay</option>
+                <option value="3star">3-Star Stay</option>
+                <option value="4star" selected>4-Star Stay</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field meals-field">
+            <label for="mealsSelect">Meals</label>
+            <select id="mealsSelect" onchange="recalculatePlan()">
+              <option value="excluded" selected>Meals Excluded</option>
+              <option value="breakfast">Breakfast Only</option>
+              <option value="satvik">All Meals (Satvik / Local)</option>
+            </select>
+          </div>
+
+          <div id="vehicleTipBox" class="tip-box">Tip: Bus or Tempo Traveller fits groups of 7 or more travellers.</div>
+        </div>
+
+        <div class="panel">
+          <h3 class="summary-heading">Estimated Summary</h3>
+          <div id="summaryRouteText" class="route-dashed">
+            Varanasi -&gt; Ayodhya -&gt; Prayagraj -&gt; Gaya &amp; Bodh Gaya -&gt; Mundeshwari -&gt; Sasaram (15d · 16p)
+          </div>
+          <div class="sum-row"><span>Transport &amp; Stops</span><strong id="summaryTransportCost">₹39,000</strong></div>
+          <div class="sum-row"><span>Hotel Stay</span><strong id="summaryHotelCost">₹4,56,000</strong></div>
+          <div class="sum-row"><span>Meals</span><strong id="summaryMealsCost">₹0</strong></div>
+          <div class="sum-total">
+            <span>Estimated Total</span>
+            <span id="summaryTotalCost" class="total-val">₹4,95,000</span>
+          </div>
+          <button type="button" class="btn-full" onclick="openBookingFromPlanner()">Proceed to Booking Preview</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFIED TERMS & CONDITIONS -->
+  <section id="terms-section" class="section">
+    <div class="container-narrow">
+      <div class="eyebrow">VERIFIED YATRA POLICY &amp; GUEST GUIDELINES</div>
+      <h2 class="section-title mb-20">Terms &amp; Conditions</h2>
+
+      <div class="acc-item open">
+        <button type="button" class="acc-btn" onclick="toggleAcc(this)">
+          <span>1. Booking Confirmation, 30% Advance &amp; INR / USD Billing</span>
+          <span>▼</span>
+        </button>
+        <div class="acc-body">
+          A 30% advance deposit locks fleet allocation (Cab, Tempo Traveller, Bus, or Rental Bike) and hotel rooms across Varanasi, Ayodhya, Prayagraj, Sasaram, Mundeshwari, and Bodh Gaya. Balance is due 72 hours before departure. Domestic guests pay in INR (₹); international guests may pay in USD ($).
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button type="button" class="acc-btn" onclick="toggleAcc(this)">
+          <span>2. Cancellation &amp; Rescheduling Policy</span>
+          <span>▼</span>
+        </button>
+        <div class="acc-body">
+          15+ days prior: 90% advance refund or 1 free date change within 6 months. 7–14 days prior: 50% advance refund. Under 7 days or no-show: non-refundable.
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button type="button" class="acc-btn" onclick="toggleAcc(this)">
+          <span>3. Inter-State Transport &amp; Varanasi Rental Bike Rules</span>
+          <span>▼</span>
+        </button>
+        <div class="acc-body">
+          Commercial vehicles cover UP–Bihar inter-state permits, fuel, tolls, and driver allowance. Varanasi Rental Bikes require a valid driving licence/IDP, helmet, and security deposit; rider pays fuel.
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button type="button" class="acc-btn" onclick="toggleAcc(this)">
+          <span>4. Mandatory ID / Passport &amp; Temple Etiquette</span>
+          <span>▼</span>
+        </button>
+        <div class="acc-body">
+          Indian guests need a valid government photo ID; foreign guests must carry an original Passport and valid Indian Visa. Modest dress is required at temples and monasteries.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER & HELP & FOOTER -->
+  <div class="newsletter">
+    <h2>Sign up for trail updates</h2>
+    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+      <input id="newsName" type="text" required placeholder="Name" />
+      <input id="newsEmail" type="email" required placeholder="Email" />
+      <button type="submit" class="btn-emerald-sm newsletter-btn">Subscribe</button>
+    </form>
+    <p id="newsletterFeedback" class="newsletter-feedback hidden"></p>
+  </div>
+
+  <section id="help-section" class="help-section">
+    <div class="help-card">
+      <h3>Need help planning?</h3>
+      <p>Start planning your Kashi-Magadh route today and pick stops, stay comfort, and travel days that match your group.</p>
+      <a href="#planner-section" class="btn-emerald-sm help-cta">Start Planning</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-narrow">
+      <div class="footer-grid">
+        <div>
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="#destinations-section">Varanasi</a></li>
+            <li><a href="#destinations-section">Prayagraj</a></li>
+            <li><a href="#destinations-section">Ayodhya</a></li>
+            <li><a href="#destinations-section">Sasaram</a></li>
+            <li><a href="#destinations-section">Mundeshwari</a></li>
+            <li><a href="#destinations-section">Gaya &amp; Bodh Gaya</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#trails-section">Spiritual Trails</a></li>
+            <li><a href="#planner-section">Route &amp; Cost Planner</a></li>
+            <li><a href="#reviews-section">Traveller Reviews</a></li>
+            <li><a href="#terms-section">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>International Desk (USD)</h4>
+          <ul>
+            <li><a href="#foreign-desk">USD Circuit Packages</a></li>
+            <li><button type="button" class="footer-link-btn" onclick="openGalleryModal('all')">Local Photo Gallery (23)</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        Kashi-Magadh Spiritual Trails · Keep local photos inside <code>images/</code>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="bookingModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">BOOKING PREVIEW</div>
+          <h3 id="modalTitle" class="modal-title">Custom Kashi-Magadh Trail</h3>
+        </div>
+        <button type="button" class="close-x" onclick="closeBookingModal()">✕</button>
+      </div>
+      <div class="modal-summary-box">
+        <div><strong>Stops:</strong> <span id="modalStops">Varanasi -&gt; Ayodhya</span></div>
+        <div class="mt-4"><strong>Duration:</strong> <span id="modalDuration">3 Days · 2 Travellers</span></div>
+        <div class="modal-quote-row"><strong>Quote:</strong> <span id="modalPrice" class="modal-quote-val">₹11,500</span></div>
+      </div>
+      <form id="bookingForm" class="modal-form" onsubmit="submitBookingRequest(event)">
+        <input id="bkName" type="text" required placeholder="Full Name *" class="modal-input" />
+        <input id="bkEmail" type="email" required placeholder="Email Address *" class="modal-input" />
+        <input id="bkPhone" type="tel" required placeholder="Phone / WhatsApp *" class="modal-input" />
+        <label class="modal-agree">
+          <input type="checkbox" required class="modal-checkbox" />
+          <span>I agree to the <a href="#terms-section" onclick="closeBookingModal()" class="modal-terms-link">Terms &amp; Conditions</a>.</span>
+        </label>
+        <button type="submit" class="btn-full mt-4">Confirm Booking Request</button>
+      </form>
+      <div id="bookingSuccessBox" class="booking-success hidden">
+        <strong>✓ Booking Request Saved!</strong>
+        <p id="bookingRefText" class="booking-ref-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY MODAL -->
+  <div id="galleryModal" class="modal-backdrop">
+    <div class="modal-box wide">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">LOCAL FOLDER ARCHIVE (images/)</div>
+          <h3 id="galleryModalTitle" class="modal-title">Destination Photos</h3>
+        </div>
+        <button type="button" class="close-x" onclick="document.getElementById('galleryModal').classList.remove('show')">✕</button>
+      </div>
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
